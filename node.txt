@@ -1,0 +1,11 @@
+ <?php if (count($users) > 0) : ?>
+                        <?php if ($current_page > 1) : ?>
+                            <li class="page-item"><a class="page-link" aria-label="Previous" href="<?php echo base_url('users?page=' . ($current_page - 3)) ?>"><span aria-hidden="true">&laquo;</span></a></li>
+                        <?php endif; ?>
+                        <?php for ($i = $start; $i <= $end; $i++) : ?>
+                            <li class="page-item <?php echo ($i == $current_page) ? 'active' : '' ?>"><a class="page-link" href="<?php echo base_url('users?page=' . $i) ?>"><?php echo $i ?></a></li>
+                        <?php endfor; ?>
+                        <?php if ($current_page < $total_page) : ?>
+                            <li class="page-item"><a class="page-link" href="<?php echo base_url('users?page=' . ($current_page + 3)) ?>"><span aria-hidden="true">&raquo;</span></a></li>
+                        <?php endif; ?>
+                    <?php endif; ?>
